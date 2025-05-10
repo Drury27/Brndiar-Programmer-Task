@@ -1,26 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
 
-    /*[HideInInspector]*/
     public Transform nextParent;
-    /*[HideInInspector]*/
     public Item item;
 
-    public Image thisImage;
+    public Image image;
+    public string tooltip;
+    public TMP_Text tooltipText;
 
     public void InitializeItem(Item newItem)
         {
         item = newItem;
-        thisImage.sprite = newItem.sprite;
+        image.sprite = newItem.image;
+        tooltipText = GetComponentInChildren<TMP_Text>();
+        tooltipText.text = tooltip;
         }
 
     public void OnBeginDrag(PointerEventData data)
         {
-        thisImage.raycastTarget = false;
+        image.raycastTarget = false;
         nextParent = transform.parent;
         transform.SetParent(transform.root);
         }
@@ -35,7 +38,17 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             //preferably the item would get yeeted instead, we'll see
             Destroy(this.gameObject);
             }
-        thisImage.raycastTarget = true;
+        image.raycastTarget = true;
         transform.SetParent(nextParent);
+        }
+    public void OnPointerEnter(PointerEventData data)
+        {
+        //if (!tooltipText.gameObject.activeSelf)
+            tooltipText.gameObject.SetActive(true);
+        }
+    public void OnPointerExit(PointerEventData data)
+        {
+        //if (tooltipText.gameObject.activeSelf)
+            tooltipText.gameObject.SetActive(false);
         }
     }

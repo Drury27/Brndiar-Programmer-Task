@@ -17,7 +17,6 @@ public class InventoryManager : MonoBehaviour
                 SpawnNewItem(item, slot);
                 return true;
                 }
-            
             }
         return false;
         }
@@ -27,4 +26,6 @@ public class InventoryManager : MonoBehaviour
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.InitializeItem(item);
         }
+
+
 }

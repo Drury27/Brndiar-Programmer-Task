@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 0fa28d73dc04f654aa1c2230577213b1, type: 3}
   type: 1
-  tooltip: 
+  tooltip: It might as well be made of rubber

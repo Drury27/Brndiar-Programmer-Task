@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Item")]
 public class Item : ScriptableObject
 {
-    public Sprite sprite;
+    public Sprite image;
     public ItemType type;
     public string tooltip;
 

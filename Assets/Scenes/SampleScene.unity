@@ -1598,6 +1598,14 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: cec7c31fa949d7346ae0989f190481f9, type: 2}
+    - target: {fileID: 8147724931155981972, guid: 840ac2c19ddfa8149a8a9b22f16ec830, type: 3}
+      propertyPath: tooltip
+      value: egregervrev
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147724931155981972, guid: 840ac2c19ddfa8149a8a9b22f16ec830, type: 3}
+      propertyPath: tooltipText
+      value: 
+      objectReference: {fileID: 1212813329}
     - target: {fileID: 8345242598285967310, guid: 840ac2c19ddfa8149a8a9b22f16ec830, type: 3}
       propertyPath: m_Name
       value: Inventory Item
@@ -1612,6 +1620,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2361373187761047148, guid: 840ac2c19ddfa8149a8a9b22f16ec830, type: 3}
   m_PrefabInstance: {fileID: 1074938552}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1212813329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7710856288726080265, guid: 840ac2c19ddfa8149a8a9b22f16ec830, type: 3}
+  m_PrefabInstance: {fileID: 1074938552}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1296780271 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -6044986315563568840, guid: db38ef96acf1f2540887cc0b1e113fdb, type: 3}
@@ -1900,6 +1919,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f2060a1529b6e04b9915b4b3647bdcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1418135581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5459048569895102490, guid: db38ef96acf1f2540887cc0b1e113fdb, type: 3}
+  m_PrefabInstance: {fileID: 2999876609709811235}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1456331164
@@ -3110,6 +3140,18 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: 619db7d15be356b459857ab63295215a, type: 2}
+    - target: {fileID: 5895934946862433671, guid: db38ef96acf1f2540887cc0b1e113fdb, type: 3}
+      propertyPath: tooltip
+      value: gegerberberbre
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895934946862433671, guid: db38ef96acf1f2540887cc0b1e113fdb, type: 3}
+      propertyPath: tooltipText
+      value: 
+      objectReference: {fileID: 1418135581}
+    - target: {fileID: 8846840655416858517, guid: db38ef96acf1f2540887cc0b1e113fdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
