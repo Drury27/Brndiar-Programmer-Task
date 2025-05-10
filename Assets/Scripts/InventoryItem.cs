@@ -3,10 +3,20 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
-{
+    {
 
+    /*[HideInInspector]*/
     public Transform nextParent;
+    /*[HideInInspector]*/
+    public Item item;
+
     public Image thisImage;
+
+    public void InitializeItem(Item newItem)
+        {
+        item = newItem;
+        thisImage.sprite = newItem.sprite;
+        }
 
     public void OnBeginDrag(PointerEventData data)
         {
@@ -20,7 +30,12 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     public void OnEndDrag(PointerEventData data)
         {
+        if (!data.pointerCurrentRaycast.isValid)
+            {
+            //preferably the item would get yeeted instead, we'll see
+            Destroy(this.gameObject);
+            }
         thisImage.raycastTarget = true;
         transform.SetParent(nextParent);
         }
-}
+    }
