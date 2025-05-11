@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System.IO;
 //using UnityEngine.UIElements;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
+    public int identifier;
 
     public Transform nextParent;
     public Item item;
@@ -14,10 +16,12 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public string tooltip;
     public Text tooltipText;
     public ItemType type;
+    public GameObject collectiblePrefab;
 
     public void InitializeItem(Item newItem)
         {
         item = newItem;
+        identifier = newItem.identifier;
         type = newItem.type;
         image.sprite = newItem.image;
         tooltip = newItem.tooltip;
@@ -43,7 +47,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 {
                 InventoryManager.instance.armed = false;
                 }
-            // TODO: the item should get thrown into the game world instead
+            GameObject spawnedCollectible = Instantiate(collectiblePrefab);
+            spawnedCollectible.GetComponentInChildren<ItemCollectible>().item = item;
             Destroy(this.gameObject);
             }
         image.raycastTarget = true;

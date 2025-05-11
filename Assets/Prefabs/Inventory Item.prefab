@@ -93,3 +93,5 @@ MonoBehaviour:
   image: {fileID: 7674022812064401040}
   tooltip: 
   tooltipText: {fileID: 0}
+  type: 0
+  collectiblePrefab: {fileID: 6671811562790639662, guid: 1ebcad07b9c38f047be755efc0bc5bbf, type: 3}

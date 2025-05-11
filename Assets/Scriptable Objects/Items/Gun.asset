@@ -16,3 +16,4 @@ MonoBehaviour:
   type: 0
   tooltip: (Press Space to shoot) Chambered for .50AE, easily capable of breaking
     fragile mechanisms
+  identifier: 2
