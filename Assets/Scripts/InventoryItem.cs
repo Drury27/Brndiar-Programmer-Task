@@ -11,13 +11,13 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public Image image;
     public string tooltip;
-    public TMP_Text tooltipText;
+    public Text tooltipText;
 
     public void InitializeItem(Item newItem)
         {
         item = newItem;
         image.sprite = newItem.image;
-        tooltipText = GetComponentInChildren<TMP_Text>();
+        tooltipText = GameObject.Find("Tooltip").GetComponent<Text>();
         tooltipText.text = tooltip;
         }
 
@@ -43,12 +43,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     public void OnPointerEnter(PointerEventData data)
         {
-        //if (!tooltipText.gameObject.activeSelf)
-            tooltipText.gameObject.SetActive(true);
+        tooltipText.enabled = true;
+        tooltipText.text = tooltip;
         }
     public void OnPointerExit(PointerEventData data)
         {
-        //if (tooltipText.gameObject.activeSelf)
-            tooltipText.gameObject.SetActive(false);
+        tooltipText.enabled = false;
         }
     }
