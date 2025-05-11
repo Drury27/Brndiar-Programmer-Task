@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d85d4008df34be4b8a4751a8c63a980, type: 3}
   m_Name: Bread
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 0fa28d73dc04f654aa1c2230577213b1, type: 3}
+  image: {fileID: 21300000, guid: 0fa28d73dc04f654aa1c2230577213b1, type: 3}
   type: 1
   tooltip: It might as well be made of rubber
