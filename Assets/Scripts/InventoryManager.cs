@@ -2,9 +2,25 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager instance;
+    public Item[] startingItems;
     public InventorySlot[] inventorySlots;
+    public InventorySlot weaponSlot;
     public GameObject inventoryItemPrefab;
+    public bool armed;
 
+    private void Awake()
+        {
+        instance = this;
+        }
+
+    private void Start()
+        {
+        foreach (var item in startingItems)
+            {
+            AddItem(item);
+            }
+        }
 
     public bool AddItem(Item item)
         {
@@ -12,7 +28,7 @@ public class InventoryManager : MonoBehaviour
             {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot != null)
+            if (itemInSlot == null)
                 {
                 SpawnNewItem(item, slot);
                 return true;
@@ -26,6 +42,4 @@ public class InventoryManager : MonoBehaviour
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.InitializeItem(item);
         }
-
-
 }

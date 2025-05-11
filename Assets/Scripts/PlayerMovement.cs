@@ -1,26 +1,29 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
 
-    [HideInInspector] public float horizontalInput;
-    [HideInInspector] public float verticalInput;
+    float horizontalInput;
+    float verticalInput;
 
     public float inertia;
-    [HideInInspector] public float inertiaModifier;
+    float inertiaModifier;
 
     public float runSpeed;
     public float defaultGravity;
 
+    bool flipped;
+
     Rigidbody2D thisBody;
-    SpriteRenderer thisSprite;
+    SpriteRenderer[] playerSprites;
     Animator anim;
 
     void Start()
         {
         thisBody = GetComponent<Rigidbody2D>();
-        thisSprite = GetComponent<SpriteRenderer>();
+        playerSprites = GetComponentsInChildren<SpriteRenderer>(true);
         anim = GetComponent<Animator>();
         }
 
@@ -31,11 +34,19 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Flip sprite based on movement direction
+        // Flip sprites based on movement direction
         if (horizontalInput > 0f)
-            thisSprite.flipX = false;
+            {
+            flipped = false;
+            }
         if (horizontalInput < 0f)
-            thisSprite.flipX = true;
+            {
+            flipped = true;
+            }
+        foreach (var sprite in playerSprites)
+            {
+            sprite.flipX = flipped;
+            }
 
         anim.SetBool("Running", (Input.GetAxisRaw("Horizontal") != 0) ? true : false);
         }
@@ -60,5 +71,12 @@ public class PlayerMovement : MonoBehaviour
 
         // Apply movement
         thisBody.linearVelocity = new Vector2(runSpeed * inertiaModifier, thisBody.linearVelocity.y);
+        }
+    private void OnTriggerEnter2D(Collider2D collision)
+        {
+        if (collision.CompareTag("Goal"))
+            {
+            SceneManager.LoadScene(1);
+            }
         }
     }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+//using UnityEngine.UIElements;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
@@ -12,11 +13,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Image image;
     public string tooltip;
     public Text tooltipText;
+    public ItemType type;
 
     public void InitializeItem(Item newItem)
         {
         item = newItem;
+        type = newItem.type;
         image.sprite = newItem.image;
+        tooltip = newItem.tooltip;
         tooltipText = GameObject.Find("Tooltip").GetComponent<Text>();
         tooltipText.text = tooltip;
         }
@@ -35,7 +39,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
         if (!data.pointerCurrentRaycast.isValid)
             {
-            //preferably the item would get yeeted instead, we'll see
+            if (type == ItemType.Weapon && nextParent.GetComponent<InventorySlot>().weaponSlot)
+                {
+                InventoryManager.instance.armed = false;
+                }
+            // TODO: the item should get thrown into the game world instead
             Destroy(this.gameObject);
             }
         image.raycastTarget = true;
